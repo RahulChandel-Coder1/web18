@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+
+<body>
+    <h1></h1>
+    <button id="Increase">Increase</button>
+    <button id="Decrease">Decrease</button>
+</body>
+<script>
+    let display = document.querySelector("h1");
+    display.innerText = localStorage.getItem("countvalue") || "";
+    let count = display.innerText;
+    if (display.innerText === "") {
+        alert("The Count has no value.");
+    }
+    document.querySelector("#Increase").addEventListener("click", increment);
+
+    function increment() {
+        count++;
+        display.innerText = count;
+        localStorage.setItem("countvalue", count);
+    }
+    document.querySelector("#Decrease").addEventListener("click", decrement);
+
+    function decrement() {
+        count--;
+        display.innerText = count;
+        localStorage.setItem("countvalue", count);
+    }
+</script>
+
+</html>
