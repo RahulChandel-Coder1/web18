@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to your account</title>
+    <style>
+        .container {
+            display: inline-block;
+            margin-left: 40%;
+            border: 1px solid;
+            padding: 30px 60px;
+        }
+        
+        form {
+            display: block;
+            margin: auto;
+        }
+        
+        form>#submit {
+            display: block;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="login">
+            <h2>Login to Your Account</h2>
+            <h3>Email</h3>
+            <input type="text" id="email" placeholder="Enter registered email">
+            <h3>Password</h3>
+            <input type="password" id="password" placeholder="Enter password">
+            <input type="submit" id="submit">
+        </form>
+    </div>
+</body>
+<script>
+    let storedData = JSON.parse(localStorage.getItem("data"));
+    document.querySelector("form").addEventListener("submit", check);
+
+    function check() {
+        if (storedData.email == login.email.value && storedData.password == login.password.value) {
+            alert("Login successful");
+        } else {
+            alert("Invalid email or password.");
+        }
+    }
+</script>
+
+</html>

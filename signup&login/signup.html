@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up and create a new account</title>
+    <style>
+        #container {
+            display: inline-block;
+            margin-left: 40%;
+            border: 1px solid;
+            padding: 30px 60px;
+        }
+        
+        form {
+            display: block;
+            margin: auto;
+        }
+        
+        h2 {
+            display: block;
+            text-align: center;
+        }
+        
+        form>#submit {
+            display: block;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Signup to Create a New Account</h2>
+        <form>
+            <h3>Email</h3>
+            <input id="email" type="text" placeholder="Enter email">
+            <h3>Phone Number</h3>
+            <input id="phone" type="number" placeholder="Enter your phone number">
+            <h3>Password</h3>
+            <input id="password" type="password" placeholder="Enter password">
+            <input id="submit" type="submit">
+        </form>
+    </div>
+</body>
+<script>
+    document.querySelector("form").addEventListener("submit", signUp)
+
+    function signUp() {
+        event.preventDefault();
+        let email = document.querySelector("#email").value;
+        let phone = document.querySelector("#phone").value;
+        let password = document.querySelector("#password").value;
+        let data = {
+            email: email,
+            phone_no: phone,
+            password: password
+        }
+        localStorage.setItem("data", JSON.stringify(data));
+        window.location.replace("login.html");
+    }
+</script>
+
+</html>
